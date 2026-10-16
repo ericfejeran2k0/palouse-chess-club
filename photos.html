@@ -5,7 +5,7 @@ description: Photos from Palouse Chess Club meetings and events in Pullman, WA.
 ---
 {% comment %}
   Every photo placed in this "photos" folder shows up here automatically,
-  newest file names first. Supported types: JPG, PNG, WEBP, GIF (and iPhone
+  sorted by file name (phone photos are named by date, so newest usually come first). Supported types: JPG, PNG, WEBP, GIF (and iPhone
   HEIC photos, which are converted to JPG automatically when the site builds).
 {% endcomment %}
 {% assign photos = "" | split: "" %}
@@ -32,7 +32,7 @@ description: Photos from Palouse Chess Club meetings and events in Pullman, WA.
     {% if photos.size > 0 %}
       <div class="gallery" data-gallery>
         {% for p in photos %}
-          <a href="{{ p.path | relative_url | replace: " ", "%20" }}"><img src="{{ p.path | relative_url | replace: " ", "%20" }}" alt="Palouse Chess Club photo" loading="lazy" decoding="async"></a>
+          <a href="{{ p.path | replace: "#", "%23" | replace: "?", "%3F" | relative_url }}"><img src="{{ p.path | replace: "#", "%23" | replace: "?", "%3F" | relative_url }}" alt="Palouse Chess Club photo" loading="lazy" decoding="async"></a>
         {% endfor %}
       </div>
       <dialog class="viewer" data-viewer aria-label="Photo viewer">

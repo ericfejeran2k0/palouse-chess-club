@@ -79,20 +79,45 @@ chessboard: true
 </section>
 
 <section class="section" id="special">
-  <div class="wrap narrow">
+  <div class="wrap">
     <h2>Three special moves</h2>
-    <div class="cards">
-      <div class="card">
+    <p class="lead">Tap <strong>Show me</strong> to watch each move, then try it yourself on the board.</p>
+    <div class="specials">
+      <div class="card special-card" data-special="castle">
+        <div class="board" data-special-board></div>
         <h3>Castling</h3>
         <p>Once per game, move your king <strong>two squares toward a rook</strong>, and the rook hops to the other side of the king. It tucks your king safely away. You can only castle if the king and that rook haven't moved yet, there's nothing between them, and the king isn't in check or passing through an attacked square.</p>
+        <p class="special-status" data-special-status role="status" aria-live="polite"></p>
+        <div class="button-row">
+          <button class="button button-sm" type="button" data-special-demo>▶ Show me</button>
+          <button class="button button-ghost button-sm" type="button" data-special-reset>Start over</button>
+        </div>
       </div>
-      <div class="card">
+      <div class="card special-card" data-special="promote">
+        <div class="board" data-special-board></div>
         <h3>Promotion</h3>
         <p>When a pawn reaches the <strong>far side of the board</strong>, it turns into a queen, rook, bishop or knight (your choice, but almost everyone picks a queen). You can have more than one queen!</p>
+        <p class="special-status" data-special-status role="status" aria-live="polite"></p>
+        <div class="special-choices" data-special-choices hidden>
+          <button class="button button-sm" type="button" data-piece="q">Queen</button>
+          <button class="button button-ghost button-sm" type="button" data-piece="r">Rook</button>
+          <button class="button button-ghost button-sm" type="button" data-piece="b">Bishop</button>
+          <button class="button button-ghost button-sm" type="button" data-piece="n">Knight</button>
+        </div>
+        <div class="button-row">
+          <button class="button button-sm" type="button" data-special-demo>▶ Show me</button>
+          <button class="button button-ghost button-sm" type="button" data-special-reset>Start over</button>
+        </div>
       </div>
-      <div class="card">
+      <div class="card special-card" data-special="enpassant">
+        <div class="board" data-special-board></div>
         <h3>En passant</h3>
         <p>French for "in passing." If an enemy pawn moves two squares forward and lands right beside your pawn, you may capture it <strong>as if it had moved only one square</strong>, but only on your very next move.</p>
+        <p class="special-status" data-special-status role="status" aria-live="polite"></p>
+        <div class="button-row">
+          <button class="button button-sm" type="button" data-special-demo>▶ Show me</button>
+          <button class="button button-ghost button-sm" type="button" data-special-reset>Start over</button>
+        </div>
       </div>
     </div>
   </div>

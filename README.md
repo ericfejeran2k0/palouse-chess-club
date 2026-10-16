@@ -16,7 +16,7 @@ You can do everything right here on github.com, with no software to install.
 4. Click the green **Commit changes…** button, then **Commit changes** again in the pop-up. ("Commit" is GitHub's word for "save.")
 5. Wait a minute or two, then refresh the website.
 
-**Did it work?** Click the **Actions** tab at the top of this page. A green ✅ next to your change means it's live. A red ❌ usually means a small typo (often a missing quote mark or wrong indentation) in the file you just edited. Open that file, compare it with the examples, fix it, and save again. You can't break anything permanently: GitHub keeps every earlier version (click **History** on any file).
+**Did it work?** Click the **Actions** tab at the top of this page. A green ✅ next to your change means it's live. A red ❌ usually means a small typo in the file you just edited. The most common ones are a missing quotation mark, a title containing a colon (:) without quotes around it, and using the Tab key instead of spaces. Open that file, compare it with the examples, fix it, and save again. You can't break anything permanently: GitHub keeps every earlier version (click **History** on any file).
 
 ---
 
@@ -37,8 +37,11 @@ For anything else, open **`_data/events.yml`**, click ✏️, and add your event
 
 - The date is written **year-month-day**.
 - Only `date` and `title` are required. Delete any lines you don't need.
-- Keep the spacing exactly as shown: `- date:` at the far left, and every other line indented two spaces.
+- Keep the spacing exactly as shown: `- date:` at the far left, and every other line indented two spaces (use the space bar, not Tab).
+- Keep the quotation marks around titles and descriptions.
 - Past events disappear from the site on their own.
+- The file also has these examples with `# ` in front of each line. If you copy one, delete the `# ` (the # and the space after it) from each line.
+- If an event doesn't appear, look at the Events page: a red note explains what to fix (for example, a date written the wrong way).
 
 **To cancel a regular meeting** (e.g. the library is closed):
 
@@ -59,7 +62,7 @@ For anything else, open **`_data/events.yml`**, click ✏️, and add your event
 3. Drag your photos in (or click "choose your files").
 4. Click **Commit changes**.
 
-That's it. They'll appear on the Photos page, newest first. Behind the scenes the site automatically:
+That's it. They'll appear on the Photos page, sorted by file name. Phones name photos by date, so the newest usually come first. Behind the scenes the site automatically:
 
 - shrinks big phone photos so pages load fast,
 - converts iPhone photos (HEIC) so every browser can show them,
@@ -88,7 +91,7 @@ The puzzles live in **`_data/puzzles.yml`**. The site shows one puzzle each week
 ```
 
 - **position:** the board setup, as a "FEN" code. To get one, go to **https://lichess.org/editor**, drag pieces into place, choose whose turn it is, and copy the text from the **FEN** box.
-- **solution:** the winning move(s) in chess notation. For longer puzzles, include the opponent's reply in between, e.g. `"Bxf7+ Ke7 Nd5#"`. Visitors play the moves on the board, and the site plays the replies.
+- **solution:** the winning move(s) in chess notation, separated by spaces. For longer puzzles, include the opponent's reply in between, e.g. `"Bxf7+ Ke7 Nd5#"`. (Move numbers like `"1. Bxf7+ Ke7 2. Nd5#"` are fine too.) Visitors play the moves on the board, and the site plays the replies.
 - Double-check your answer: on the Lichess editor page, click **Analysis board** and turn on the engine.
 
 **To change the puzzle showing this week:** the puzzle page shows its number (e.g. "Puzzle #3"). Edit the 3rd puzzle in the list, or swap in a different one at that spot.

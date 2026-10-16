@@ -17,6 +17,13 @@
       menuButton.setAttribute("aria-expanded", String(!open));
       nav.classList.toggle("is-open", !open);
     });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && nav.classList.contains("is-open")) {
+        menuButton.setAttribute("aria-expanded", "false");
+        nav.classList.remove("is-open");
+        menuButton.focus();
+      }
+    });
   }
 
   /* ---------- Date helpers ---------- */
@@ -32,6 +39,20 @@
     return new Date(d.getFullYear(), d.getMonth(), d.getDate(), +p[0], +(p[1] || 0));
   }
   function sameDay(a, b) { return dateKey(a) === dateKey(b); }
+  function validDate(str) {
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(String(str))) return false;
+    var d = parseDate(str);
+    return dateKey(d) === str && d.getFullYear() >= 2020;
+  }
+  /* Read start/end times from text like "11:00 a.m. – 1:00 p.m." (falls back to the defaults). */
+  function timesFromText(d, text, fallbackStart, fallbackEnd) {
+    var found = [];
+    String(text || "").replace(/(\d{1,2})(?::(\d{2}))?\s*([ap])\.?\s*m\b\.?/gi, function (_, h, m, ap) {
+      var hour = (+h % 12) + (ap.toLowerCase() === "p" ? 12 : 0);
+      found.push(new Date(d.getFullYear(), d.getMonth(), d.getDate(), hour, +(m || 0)));
+    });
+    return { start: found[0] || fallbackStart, end: found[1] || fallbackEnd };
+  }
   function fmt(d, opts) { return d.toLocaleDateString("en-US", opts); }
   function longDate(d) { return fmt(d, { weekday: "long", month: "long", day: "numeric" }); }
 
@@ -52,6 +73,7 @@
     var now = new Date();
     var byDate = {};
     var list = [];
+    var problems = [];
 
     for (var i = 0; i <= MONTHS_AHEAD; i++) {
       var month = new Date(now.getFullYear(), now.getMonth() + i, 1);
@@ -69,14 +91,27 @@
 
     (CLUB.events || []).forEach(function (e) {
       if (!e.date) return;
+      if (!validDate(e.date)) {
+        problems.push("The date \"" + e.date + "\" for \"" + e.title + "\" in _data/events.yml isn't written as YEAR-MONTH-DAY (for example 2026-11-14), so it can't be shown.");
+        return;
+      }
       var d = parseDate(e.date);
       var match = byDate[dateKey(d)];
+      var isMeetingDay = d.getDay() === weekday && (m.weeksOfMonth || []).indexOf(Math.ceil(d.getDate() / 7)) !== -1;
+      if (e.cancel && !isMeetingDay && d >= new Date(now.getFullYear(), now.getMonth(), now.getDate())) {
+        problems.push("\"" + e.title + "\" in _data/events.yml cancels a meeting on " + longDate(d) + ", but there's no regular meeting that day. Please check the date.");
+        return;
+      }
       if (match) {
         // A special entry on a regular meeting day changes or cancels that meeting.
         if (e.cancel) { match.cancelled = true; match.note = e.title; }
         else {
           match.title = e.title || match.title;
-          if (e.time) { match.time = e.time; match.timeChanged = true; }
+          if (e.time) {
+            match.time = e.time;
+            var t = timesFromText(d, e.time, atTime(d, "00:00"), atTime(d, "23:59"));
+            match.start = t.start; match.end = t.end;
+          }
           if (e.location) match.location = e.location;
           match.description = e.description;
           match.link = e.link;
@@ -90,9 +125,12 @@
       });
     });
 
-    return list
+    var upcoming = list
       .filter(function (ev) { return ev.end >= now; })
       .sort(function (a, b) { return a.date - b.date; });
+    problems.forEach(function (p) { console.warn(p); });
+    upcoming.problems = problems;
+    return upcoming;
   }
 
   /* ---------- Rendering helpers ---------- */
@@ -173,8 +211,13 @@
     var limit = parseInt(container.getAttribute("data-limit") || "0", 10);
     var grouped = container.hasAttribute("data-group-by-month");
     var events = upcomingEvents();
+    var problems = events.problems;
     if (limit) events = events.slice(0, limit);
+    events.problems = problems;
     container.textContent = "";
+    if (grouped) {
+      events.problems.forEach(function (p) { container.appendChild(el("p", "event-problem", "⚠️ Note for the site editor: " + p)); });
+    }
     var lastMonth = "";
     events.forEach(function (ev) {
       var month = fmt(ev.date, { month: "long", year: "numeric" });
@@ -237,7 +280,10 @@
     viewer.querySelector("[data-prev]").addEventListener("click", function () { show(current - 1); });
     viewer.querySelector("[data-next]").addEventListener("click", function () { show(current + 1); });
     viewer.querySelector("[data-close]").addEventListener("click", function () { viewer.close(); });
-    viewer.addEventListener("click", function (e) { if (e.target === viewer) viewer.close(); });
+    // Tapping the dark area around the photo closes the viewer.
+    viewer.addEventListener("click", function (e) {
+      if (e.target === viewer || e.target.classList.contains("viewer-inner")) viewer.close();
+    });
     viewer.addEventListener("keydown", function (e) {
       if (e.key === "ArrowLeft") show(current - 1);
       if (e.key === "ArrowRight") show(current + 1);

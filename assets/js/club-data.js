@@ -21,7 +21,8 @@ window.CLUB = {
       location: {{ e.location | jsonify }},
       description: {{ e.description | jsonify }},
       link: {{ e.link | jsonify }},
-      cancel: {% if e.cancel == true or e.cancel == "yes" or e.cancel == "true" %}true{% else %}false{% endif %}
+      {%- assign cancel = e.cancel | append: "" | downcase | strip %}
+      cancel: {% if cancel == "true" or cancel == "yes" or cancel == "y" %}true{% else %}false{% endif %}
     },
     {%- endif -%}
     {%- endfor %}

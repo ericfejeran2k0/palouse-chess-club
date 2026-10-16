@@ -7,16 +7,18 @@
 #   - fixes sideways photos and removes hidden data such as GPS location
 set -uo pipefail
 dir="${1:-photos}"
-shopt -s nullglob nocaseglob
+shopt -s nullglob nocaseglob globstar
 
-for f in "$dir"/*.heic "$dir"/*.heif; do
+for f in "$dir"/**/*.heic "$dir"/**/*.heif; do
   out="${f%.*}.jpg"
+  # Don't overwrite a different photo that already has the same name.
+  [ -e "$out" ] && out="${f%.*}-heic.jpg"
   echo "Converting $f"
   if heif-convert -q 90 "$f" "$out" >/dev/null; then
     # A file holding several pictures comes out as name-1.jpg, name-2.jpg...; keep the first.
-    if [ ! -f "$out" ] && [ -f "${f%.*}-1.jpg" ]; then
-      mv "${f%.*}-1.jpg" "$out"
-      rm -f "${f%.*}"-[0-9]*.jpg
+    if [ ! -f "$out" ] && [ -f "${out%.jpg}-1.jpg" ]; then
+      mv "${out%.jpg}-1.jpg" "$out"
+      rm -f "${out%.jpg}"-[0-9]*.jpg
     fi
     rm "$f"
   else
@@ -24,7 +26,7 @@ for f in "$dir"/*.heic "$dir"/*.heif; do
   fi
 done
 
-for f in "$dir"/*.jpg "$dir"/*.jpeg "$dir"/*.png "$dir"/*.webp; do
+for f in "$dir"/**/*.jpg "$dir"/**/*.jpeg "$dir"/**/*.png "$dir"/**/*.webp; do
   echo "Preparing $f"
   mogrify -auto-orient -resize '1600x1600>' -strip -quality 82 "$f" || echo "  Warning: couldn't shrink $f, using it as-is"
 done

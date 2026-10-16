@@ -1,0 +1,64 @@
+# =====================================================================
+#  PALOUSE CHESS CLUB — SITE SETTINGS
+#  This is the main settings file. Edit the text after each colon.
+#  Keep the quotation marks and the spacing at the start of each line.
+#  Changes appear on the website about a minute after you save.
+# =====================================================================
+
+title: "Palouse Chess Club"
+tagline: "Free, friendly chess in Pullman, WA"
+description: "Free, friendly chess for all ages and skill levels. We meet the 1st and 3rd Saturday of every month at Neill Public Library in Pullman, WA. Boards and pieces provided."
+
+# ---------------------------------------------------------------------
+#  SIGN-UP FORM
+#  Paste your ClickUp form link between the quotes, for example:
+#  signup_form_link: "https://forms.clickup.com/1234567/f/abcde-123/XXXXXXXX"
+#  Leave it as "" to show a friendly "coming soon" message instead.
+# ---------------------------------------------------------------------
+signup_form_link: ""
+
+# ---------------------------------------------------------------------
+#  OPTIONAL CONTACT INFO (shown in the footer when filled in)
+# ---------------------------------------------------------------------
+contact_email: ""
+facebook_link: ""
+
+# ---------------------------------------------------------------------
+#  REGULAR MEETINGS
+#  The calendar uses these to list upcoming meetings automatically.
+# ---------------------------------------------------------------------
+meetings:
+  weeks_of_month: [1, 3]        # 1st and 3rd ...
+  weekday: "Saturday"           # ... Saturday of each month
+  start_time: "10:30"           # 24-hour clock (10:30 = 10:30 a.m.)
+  end_time: "12:30"             # 24-hour clock (12:30 = 12:30 p.m.)
+  time_text: "10:30 a.m. – 12:30 p.m."
+
+location:
+  name: "Neill Public Library"
+  room: "Edith G. Hecht Meeting Room"
+  address: "210 N Grand Ave, Pullman, WA 99163"
+
+
+# =====================================================================
+#  TECHNICAL SETTINGS — you shouldn't need to change anything below.
+# =====================================================================
+lang: en_US
+permalink: pretty
+timezone: America/Los_Angeles
+logo: /assets/img/logo.png
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/social-card.png
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - .github
+  - tools

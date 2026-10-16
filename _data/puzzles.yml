@@ -1,0 +1,122 @@
+# =====================================================================
+#  WEEKLY PUZZLES
+#
+#  The website shows ONE puzzle per week, working down this list in
+#  order (a new one every Monday). When it reaches the end, it starts
+#  over at the top. To add puzzles, paste new ones at the BOTTOM so the
+#  order of the earlier ones doesn't shift.
+#
+#  Each puzzle has:
+#    title       – a short name
+#    position    – the board setup, written as a "FEN" code (see below)
+#    task        – the instruction shown above the board
+#    solution    – the correct moves in chess notation, separated by
+#                  spaces. For longer puzzles include the opponent's
+#                  replies too, e.g. "Bxf7+ Ke7 Nd5#"
+#    explanation – shown when someone solves it or taps "Show answer"
+#
+#  HOW TO GET A "FEN" CODE (no chess knowledge of codes needed):
+#    1. Go to https://lichess.org/editor
+#    2. Drag pieces to set up your position.
+#    3. Choose whose turn it is ("White to play" / "Black to play").
+#    4. Copy the long text in the "FEN" box and paste it between the
+#       quotation marks after "position:".
+#  Tip: on that same page, click "Analysis board" to double-check
+#  that your solution really works.
+# =====================================================================
+
+- title: "Scholar's Mate"
+  position: "r1bqkb1r/pppp1ppp/2n2n2/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR w KQkq - 4 4"
+  task: "White to move. Checkmate in one!"
+  solution: "Qxf7#"
+  explanation: "Queen takes on f7. The bishop on c4 protects the queen, so the black king can't capture it, and every escape square is covered. The f7 pawn is a weak spot early in the game because only the king guards it."
+
+- title: "The Family Fork"
+  position: "q3k3/pp3ppp/8/1N6/8/8/PPP2PPP/4K3 w - - 0 1"
+  task: "White to move and win the queen."
+  solution: "Nc7+ Kd8 Nxa8"
+  explanation: "Knight to c7 attacks the king AND the queen at the same time. That's called a fork. Black must move the king out of check, and then the knight captures the queen."
+
+- title: "Back-Rank Mate"
+  position: "6k1/5ppp/8/8/8/8/5PPP/3R2K1 w - - 0 1"
+  task: "White to move. Checkmate in one!"
+  solution: "Rd8#"
+  explanation: "Rook to d8 is checkmate. Black's own pawns on f7, g7 and h7 trap the king on the back row. Moving one of those pawns forward early ('making luft') is a good way to avoid this."
+
+- title: "Fool's Mate"
+  position: "rnbqkbnr/pppp1ppp/8/4p3/6P1/5P2/PPPPP2P/RNBQKBNR b KQkq - 0 2"
+  task: "Black to move. Checkmate in one! (The board is shown from Black's side.)"
+  solution: "Qh4#"
+  explanation: "Queen to h4 is checkmate, the fastest possible checkmate in chess! White weakened the king by moving the f- and g-pawns. Lesson: be careful moving the pawns in front of your king."
+
+- title: "The Skewer"
+  position: "8/8/8/3k3q/8/8/8/R5K1 w - - 0 1"
+  task: "White to move and win the queen."
+  solution: "Ra5+ Kc4 Rxh5"
+  explanation: "Rook to a5 gives check along the row. The king has to step out of the way, and then the rook captures the queen hiding behind it. A skewer is like a fork in a straight line: attack the big piece, win the piece behind it."
+
+- title: "Smothered Mate"
+  position: "6rk/6pp/8/6N1/8/8/8/6K1 w - - 0 1"
+  task: "White to move. Checkmate in one!"
+  solution: "Nf7#"
+  explanation: "Knight to f7 is checkmate. The black king is 'smothered' by its own rook and pawns, so it has nowhere to go, and the knight's check can't be blocked."
+
+- title: "Légal's Mate"
+  position: "rn1qkbnr/ppp2p1p/3p2p1/4N3/2B1P3/2N5/PPPP1PPP/R1BbK2R w KQkq - 0 6"
+  task: "White to move. Checkmate in two! (White has just let Black capture the queen... on purpose.)"
+  solution: "Bxf7+ Ke7 Nd5#"
+  explanation: "Bishop takes f7 with check, forcing the king to e7. Then knight to d5 is checkmate. The two knights and the bishop work together, which is why getting your pieces into the game matters more than grabbing material."
+
+- title: "Promotion Power"
+  position: "3r2k1/4P3/8/8/8/8/5PPP/6K1 w - - 0 1"
+  task: "White to move and win."
+  solution: "exd8=Q+"
+  explanation: "The pawn captures the rook on d8 and becomes a new queen, with check! A pawn that reaches the far side of the board can turn into any piece (except a king). Usually you pick a queen."
+
+- title: "King and Queen Teamwork"
+  position: "7k/8/6K1/8/8/8/4Q3/8 w - - 0 1"
+  task: "White to move. Checkmate in one!"
+  solution: "Qe8#"
+  explanation: "Queen to e8 is checkmate. The queen covers the whole back row, and the white king guards g7 and h7. In endgames the king is a fighter, so bring it forward!"
+
+- title: "Discovered Check"
+  position: "7k/7p/6p1/1q6/3N4/8/1B3PPP/6K1 w - - 0 1"
+  task: "White to move and win the queen."
+  solution: "Nxb5+"
+  explanation: "The knight captures the queen, and by moving out of the way it uncovers check from the bishop on b2. That's a discovered check. Black is too busy saving the king to take back."
+
+- title: "The Ladder"
+  position: "k7/7R/8/8/8/8/8/K5R1 w - - 0 1"
+  task: "White to move. Checkmate in one!"
+  solution: "Rg8#"
+  explanation: "Rook to g8 is checkmate. One rook guards the 7th row while the other gives check on the 8th. The two rooks 'climb the ladder' together."
+
+- title: "The Pin"
+  position: "6k1/pp4pp/8/3q4/8/1P6/P4PPP/R4BK1 w - - 0 1"
+  task: "White to move and win the queen."
+  solution: "Bc4 Qxc4 bxc4"
+  explanation: "Bishop to c4 pins the queen to the king, so the queen can't move off that diagonal without exposing the king to check. The best Black can do is take the bishop, and the pawn on b3 takes back. A queen for a bishop is a great trade!"
+
+- title: "Black Strikes Back"
+  position: "1r4k1/5ppp/8/8/8/8/5PPP/6K1 b - - 0 1"
+  task: "Black to move. Checkmate in one! (The board is shown from Black's side.)"
+  solution: "Rb1#"
+  explanation: "Rook to b1 is a back-rank checkmate. The white king is boxed in by its own pawns. It works for both colors!"
+
+- title: "Arabian Mate"
+  position: "7k/1R6/5N2/8/8/8/8/6K1 w - - 0 1"
+  task: "White to move. Checkmate in one!"
+  solution: "Rh7#"
+  explanation: "Rook to h7 is checkmate. The knight on f6 protects the rook and also covers g8. This rook-and-knight pattern is over a thousand years old."
+
+- title: "Clear the Way"
+  position: "2r3k1/5ppp/8/8/8/8/4QPPP/4R1K1 w - - 0 1"
+  task: "White to move. Checkmate in two!"
+  solution: "Qe8+ Rxe8 Rxe8#"
+  explanation: "Give up the queen with check on e8! Black has to capture with the rook, and then the white rook recaptures with checkmate on the back row. Sometimes a big sacrifice leads to a bigger win."
+
+- title: "Rook and King Finish"
+  position: "k7/8/1K6/8/8/8/8/7R w - - 0 1"
+  task: "White to move. Checkmate in one!"
+  solution: "Rh8#"
+  explanation: "Rook to h8 is checkmate. The white king takes away the a7 and b7 squares, and the rook covers the whole back row. Knowing this pattern helps you win endgames with just a rook."

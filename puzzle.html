@@ -1,0 +1,41 @@
+---
+layout: default
+title: Weekly Puzzle
+description: Try the Palouse Chess Club's weekly chess puzzle. A new one every Monday!
+chessboard: true
+---
+<header class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">A new puzzle every Monday</p>
+    <h1>Weekly puzzle</h1>
+  </div>
+</header>
+
+<section class="section" style="padding-top:8px">
+  <div class="wrap puzzle-layout" data-puzzle-app>
+    <div class="puzzle-head">
+      <p class="puzzle-number" data-p-number></p>
+      <h2 data-p-title>Loading puzzle…</h2>
+      <p class="puzzle-task" data-p-task></p>
+    </div>
+    <div class="board-frame"><div class="board" data-p-board></div></div>
+    <div class="puzzle-controls">
+      <p class="puzzle-status" data-p-status role="status" aria-live="polite"></p>
+      <div class="button-row">
+        <button class="button" type="button" data-p-show>Show answer</button>
+        <button class="button button-ghost" type="button" data-p-reset>Start over</button>
+      </div>
+      <div class="answer" data-p-answer hidden>
+        <p class="eyebrow">Answer</p>
+        <p class="answer-moves" data-p-answer-moves></p>
+        <p data-p-explanation></p>
+        <p style="margin:0; font-size:.95rem"><a data-p-lichess href="https://lichess.org/analysis" target="_blank" rel="noopener">Explore this position on Lichess →</a></p>
+      </div>
+      <details style="margin-top:20px">
+        <summary><strong>How do I read chess moves like "Qxf7#"?</strong></summary>
+        <p style="margin-top:8px">Each piece has a letter: <strong>K</strong> king, <strong>Q</strong> queen, <strong>R</strong> rook, <strong>B</strong> bishop, <strong>N</strong> knight (pawns have no letter). Then comes the square it moves to, like <strong>f7</strong>. An <strong>x</strong> means a capture, <strong>+</strong> means check, and <strong>#</strong> means checkmate. So "Qxf7#" means "queen captures on f7, checkmate!" <a href="{{ '/learn/' | relative_url }}#notation">Learn more</a>.</p>
+      </details>
+    </div>
+  </div>
+  <noscript><p class="wrap">Please turn on JavaScript to see the puzzle.</p></noscript>
+</section>

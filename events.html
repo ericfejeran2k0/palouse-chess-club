@@ -1,0 +1,23 @@
+---
+layout: default
+title: Events
+description: Upcoming Palouse Chess Club meetings and special events. We meet the 1st and 3rd Saturday of every month at Neill Public Library in Pullman, WA.
+---
+<header class="page-head">
+  <div class="wrap narrow">
+    <p class="eyebrow">Calendar</p>
+    <h1>Upcoming events</h1>
+    <p class="lead">We meet the <strong>1st and 3rd {{ site.meetings.weekday }} of every month</strong>, {{ site.meetings.time_text }}, at {{ site.location.name }} ({{ site.location.room }}). Tournaments and special events are listed here too.</p>
+  </div>
+</header>
+
+<section class="section" style="padding-top:16px">
+  <div class="wrap narrow">
+    <div class="event-list" data-event-list data-group-by-month>
+      <noscript><p>Please turn on JavaScript to see the calendar. We meet the 1st and 3rd {{ site.meetings.weekday }} of every month, {{ site.meetings.time_text }}.</p></noscript>
+    </div>
+    <div class="info-box" style="margin-top:28px">
+      <p><strong>Want reminders?</strong> <a href="{{ '/join/' | relative_url }}">Join our mailing list</a> to hear about tournaments, schedule changes and special events.</p>
+    </div>
+  </div>
+</section>

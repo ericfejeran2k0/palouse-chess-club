@@ -1,0 +1,112 @@
+---
+layout: default
+chessboard: true
+---
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Pullman, WA · Free · All ages</p>
+      <h1>Pull up a chair. Let's play chess.</h1>
+      <p class="lead">A free, friendly club for every age and skill level. Total beginner or longtime player, there's a seat at the board for you.</p>
+      <div class="button-row">
+        <a class="button" href="{{ '/events/' | relative_url }}">See upcoming meetings</a>
+        <a class="button button-ghost" href="{{ '/learn/' | relative_url }}">New to chess? Start here</a>
+      </div>
+    </div>
+
+    <aside class="next-card" data-next-meeting aria-label="Next meeting">
+      <p class="eyebrow">Next meeting</p>
+      <p class="next-date" data-next-date>1st &amp; 3rd {{ site.meetings.weekday }}s</p>
+      <span class="next-badge" data-next-badge hidden></span>
+      <p class="next-detail">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <span data-next-time>{{ site.meetings.time_text }}</span>
+      </p>
+      <p class="next-detail">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+        <span><span data-next-place>{{ site.location.name }}, {{ site.location.room }}</span><br>{{ site.location.address }}</span>
+      </p>
+      <p class="next-note" data-next-note hidden></p>
+      <a class="button" href="#find-us">Map &amp; directions</a>
+    </aside>
+  </div>
+  <svg class="hills" viewBox="0 0 1440 180" preserveAspectRatio="none" aria-hidden="true">
+    <path fill="#efd9a0" d="M0 90 C 160 40 330 40 520 85 S 880 140 1080 80 S 1330 30 1440 60 V180 H0Z"/>
+    <path fill="#a9c48a" d="M0 125 C 220 85 420 95 650 130 S 1050 165 1250 120 S 1400 100 1440 110 V180 H0Z"/>
+    <path fill="#6f9c6a" d="M0 150 C 260 125 520 135 760 158 S 1180 150 1440 140 V180 H0Z"/>
+    <path fill="#fbf6ec" d="M0 172 C 360 160 720 168 1080 174 S 1350 168 1440 170 V180 H0Z"/>
+  </svg>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>What to expect</h2>
+    <div class="cards cards-compact">
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">♞</div>
+        <h3>Always free</h3>
+        <p>No dues and no fees. Just come and play.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">♙</div>
+        <h3>All ages &amp; skill levels</h3>
+        <p>Kids, students, parents and grandparents. First-timers and longtime players all play together.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">♜</div>
+        <h3>Boards provided</h3>
+        <p>We bring the boards and pieces. You just bring yourself (and maybe a friend).</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" aria-hidden="true">♛</div>
+        <h3>Relaxed &amp; welcoming</h3>
+        <p>Drop in any time during the meeting, play a few games, and stay as long as you like.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="wrap split">
+    <div>
+      <h2>Coming up</h2>
+      <div class="event-list" data-event-list data-limit="4">
+        <p>We meet the <strong>1st and 3rd {{ site.meetings.weekday }} of every month</strong>, {{ site.meetings.time_text }}.</p>
+      </div>
+      <p style="margin-top:16px"><a class="button button-ghost" href="{{ '/events/' | relative_url }}">Full calendar</a></p>
+    </div>
+    <div>
+      <h2>This week's puzzle</h2>
+      <div class="puzzle-preview">
+        <a href="{{ '/puzzle/' | relative_url }}" aria-label="Open this week's puzzle"><div class="board" data-puzzle-preview></div></a>
+        <div>
+          <h3 data-puzzle-title>Weekly chess puzzle</h3>
+          <p data-puzzle-task>A new puzzle every Monday.</p>
+          <a class="button" href="{{ '/puzzle/' | relative_url }}">Solve it</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="find-us">
+  <div class="wrap split">
+    <div>
+      <h2>Find us</h2>
+      <address class="address">
+        <strong>{{ site.location.name }}</strong><br>
+        {{ site.location.room }}<br>
+        {{ site.location.address }}
+      </address>
+      <p style="margin-top:1em">Every 1st &amp; 3rd {{ site.meetings.weekday }}<br>{{ site.meetings.time_text }}</p>
+      <div class="button-row">
+        <a class="button" href="https://www.google.com/maps/dir/?api=1&destination={{ site.location.name | append: ', ' | append: site.location.address | url_encode }}">Get directions</a>
+        <a class="button button-ghost" href="{{ '/join/' | relative_url }}">Join the mailing list</a>
+      </div>
+    </div>
+    <div class="map">
+      <iframe title="Map showing {{ site.location.name }}" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        src="https://maps.google.com/maps?q={{ site.location.name | append: ', ' | append: site.location.address | url_encode }}&z=16&output=embed"></iframe>
+    </div>
+  </div>
+</section>

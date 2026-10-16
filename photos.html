@@ -1,0 +1,53 @@
+---
+layout: default
+title: Photos
+description: Photos from Palouse Chess Club meetings and events in Pullman, WA.
+---
+{% comment %}
+  Every photo placed in this "photos" folder shows up here automatically,
+  newest file names first. Supported types: JPG, PNG, WEBP, GIF (and iPhone
+  HEIC photos, which are converted to JPG automatically when the site builds).
+{% endcomment %}
+{% assign photos = "" | split: "" %}
+{% for f in site.static_files %}
+  {% if f.path contains "/photos/" %}
+    {% assign ext = f.extname | downcase %}
+    {% if ext == ".jpg" or ext == ".jpeg" or ext == ".png" or ext == ".webp" or ext == ".gif" %}
+      {% assign photos = photos | push: f %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+{% assign photos = photos | sort: "name" | reverse %}
+
+<header class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Gallery</p>
+    <h1>Photos</h1>
+    <p class="lead">Snapshots from our meetings and events. Tap any photo to see it larger.</p>
+  </div>
+</header>
+
+<section class="section" style="padding-top:16px">
+  <div class="wrap">
+    {% if photos.size > 0 %}
+      <div class="gallery" data-gallery>
+        {% for p in photos %}
+          <a href="{{ p.path | relative_url | replace: " ", "%20" }}"><img src="{{ p.path | relative_url | replace: " ", "%20" }}" alt="Palouse Chess Club photo" loading="lazy" decoding="async"></a>
+        {% endfor %}
+      </div>
+      <dialog class="viewer" data-viewer aria-label="Photo viewer">
+        <div class="viewer-inner"><img alt="Palouse Chess Club photo"></div>
+        <button class="viewer-btn viewer-close" type="button" data-close aria-label="Close">✕</button>
+        <button class="viewer-btn viewer-prev" type="button" data-prev aria-label="Previous photo">‹</button>
+        <button class="viewer-btn viewer-next" type="button" data-next aria-label="Next photo">›</button>
+        <p class="viewer-counter" data-counter></p>
+      </dialog>
+    {% else %}
+      <div class="empty-state">
+        <div class="big" aria-hidden="true">📷</div>
+        <h2>Photos coming soon</h2>
+        <p>Check back after our next meeting!</p>
+      </div>
+    {% endif %}
+  </div>
+</section>

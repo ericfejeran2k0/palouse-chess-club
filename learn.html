@@ -1,0 +1,212 @@
+---
+layout: default
+title: Learn to Play
+description: A friendly beginner's guide to chess. How the pieces move, the basic rules, simple strategy tips, and the best free resources.
+chessboard: true
+---
+<header class="page-head">
+  <div class="wrap">
+    <p class="eyebrow">Beginner's guide</p>
+    <h1>Learn to play chess</h1>
+    <p class="lead">Never played before? No problem! Here's everything you need for your first game. And remember, at the club you can always ask someone to show you.</p>
+    <ul class="toc">
+      <li><a href="#setup">Setting up</a></li>
+      <li><a href="#pieces">How the pieces move</a></li>
+      <li><a href="#special">Special moves</a></li>
+      <li><a href="#rules">Basic rules</a></li>
+      <li><a href="#tips">Strategy tips</a></li>
+      <li><a href="#practice">Practice board</a></li>
+      <li><a href="#notation">Reading moves</a></li>
+      <li><a href="#resources">Free resources</a></li>
+    </ul>
+  </div>
+</header>
+
+<section class="section" id="setup">
+  <div class="wrap split">
+    <div>
+      <h2>Setting up the board</h2>
+      <p>Chess is played by two players, <strong>White</strong> and <strong>Black</strong>, on a board of 64 squares. Each player starts with 16 pieces: 1 king, 1 queen, 2 rooks, 2 bishops, 2 knights and 8 pawns.</p>
+      <ul class="rule-list">
+        <li><strong>"Light on the right."</strong> Turn the board so each player has a light-colored square in their bottom-right corner.</li>
+        <li><strong>Pawns</strong> fill the second row.</li>
+        <li><strong>Back row, from the corners in:</strong> rook, knight, bishop, then the queen and king in the middle.</li>
+        <li><strong>"Queen on her color."</strong> The white queen starts on a light square, and the black queen on a dark square.</li>
+        <li><strong>White always moves first.</strong> Then players take turns, one move each.</li>
+      </ul>
+    </div>
+    <div class="board-frame"><div class="board" data-board data-fen="start" data-coords></div></div>
+  </div>
+</section>
+
+<section class="section section-alt" id="pieces">
+  <div class="wrap">
+    <h2>How the pieces move</h2>
+    <p class="lead">The green dots show where each piece can go. No piece (except the knight) can jump over other pieces. You capture an enemy piece by moving onto its square.</p>
+    <div class="pieces">
+      <div class="piece-card">
+        <div class="board" data-board data-fen="8/8/8/8/3K4/8/8/8" data-dots="c3 c4 c5 d3 d5 e3 e4 e5"></div>
+        <h3>King <span class="piece-value">Most important!</span></h3>
+        <p>Moves <strong>one square in any direction</strong>. If your king is trapped (checkmate), you lose, so keep it safe!</p>
+      </div>
+      <div class="piece-card">
+        <div class="board" data-board data-fen="8/8/8/8/3Q4/8/8/8" data-dots="a1 a4 a7 b2 b4 b6 c3 c4 c5 d1 d2 d3 d5 d6 d7 d8 e3 e4 e5 f2 f4 f6 g1 g4 g7 h4 h8"></div>
+        <h3>Queen <span class="piece-value">Worth 9</span></h3>
+        <p>The most powerful piece. Moves <strong>any number of squares in a straight line or diagonal</strong>.</p>
+      </div>
+      <div class="piece-card">
+        <div class="board" data-board data-fen="8/8/8/8/3R4/8/8/8" data-dots="a4 b4 c4 d1 d2 d3 d5 d6 d7 d8 e4 f4 g4 h4"></div>
+        <h3>Rook <span class="piece-value">Worth 5</span></h3>
+        <p>Moves <strong>any number of squares straight</strong>: up, down, left or right. Rooks are strongest on open rows and columns.</p>
+      </div>
+      <div class="piece-card">
+        <div class="board" data-board data-fen="8/8/8/8/3B4/8/8/8" data-dots="a1 a7 b2 b6 c3 c5 e3 e5 f2 f6 g1 g7 h8"></div>
+        <h3>Bishop <span class="piece-value">Worth 3</span></h3>
+        <p>Moves <strong>any number of squares diagonally</strong>. Each bishop stays on the same color square for the whole game.</p>
+      </div>
+      <div class="piece-card">
+        <div class="board" data-board data-fen="8/8/8/8/3N4/8/8/8" data-dots="b3 b5 c2 c6 e2 e6 f3 f5"></div>
+        <h3>Knight <span class="piece-value">Worth 3</span></h3>
+        <p>Moves in an <strong>"L" shape</strong>: two squares one way, then one square to the side. It's the only piece that can <strong>jump over</strong> others.</p>
+      </div>
+      <div class="piece-card">
+        <div class="board" data-board data-fen="8/8/8/1p1p4/2P5/8/4P3/8" data-dots="b5 c5 d5 e3 e4"></div>
+        <h3>Pawn <span class="piece-value">Worth 1</span></h3>
+        <p>Moves <strong>one square forward</strong> (or two on its very first move), but <strong>captures one square diagonally forward</strong>. Pawns never move backward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="special">
+  <div class="wrap narrow">
+    <h2>Three special moves</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Castling</h3>
+        <p>Once per game, move your king <strong>two squares toward a rook</strong>, and the rook hops to the other side of the king. It tucks your king safely away. You can only castle if the king and that rook haven't moved yet, there's nothing between them, and the king isn't in check or passing through an attacked square.</p>
+      </div>
+      <div class="card">
+        <h3>Promotion</h3>
+        <p>When a pawn reaches the <strong>far side of the board</strong>, it turns into a queen, rook, bishop or knight (your choice, but almost everyone picks a queen). You can have more than one queen!</p>
+      </div>
+      <div class="card">
+        <h3>En passant</h3>
+        <p>French for "in passing." If an enemy pawn moves two squares forward and lands right beside your pawn, you may capture it <strong>as if it had moved only one square</strong>, but only on your very next move.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="rules">
+  <div class="wrap narrow">
+    <h2>Basic rules</h2>
+    <ul class="rule-list">
+      <li><strong>Check:</strong> when a king is under attack. The player in check <em>must</em> get out of it right away by moving the king, blocking the attack, or capturing the attacker.</li>
+      <li><strong>Checkmate:</strong> the king is in check and there's no way out. That's how you win the game!</li>
+      <li><strong>Stalemate:</strong> it's your turn, you're <em>not</em> in check, but you have no legal moves. The game is a draw (a tie). Watch out for this when you're winning!</li>
+      <li><strong>Other draws:</strong> both players agree to a draw, neither side has enough pieces left to checkmate, or the same position happens three times.</li>
+      <li><strong>No moving into check:</strong> you can never make a move that leaves your own king under attack.</li>
+      <li><strong>Touch move:</strong> in club and tournament games, if you touch one of your pieces, you should move it. Think first, then touch!</li>
+      <li><strong>Good sportsmanship:</strong> shake hands before and after the game, and say "good game" whether you win or lose.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="tips">
+  <div class="wrap narrow">
+    <h2>Simple strategy tips</h2>
+    <p class="lead">You don't need to memorize openings. These habits will win you a lot of games.</p>
+    <ol class="tips">
+      <li><strong>Control the center.</strong> Start by moving a center pawn (in front of your king or queen) two squares. Pieces in the middle of the board can reach more squares.</li>
+      <li><strong>Get your pieces out.</strong> Move your knights and bishops off the back row early. Try not to move the same piece twice in the opening.</li>
+      <li><strong>Castle early.</strong> Castling keeps your king safe and brings a rook into the game.</li>
+      <li><strong>Don't rush your queen out.</strong> An early queen gets chased around by smaller pieces while your opponent develops.</li>
+      <li><strong>Ask "what does my opponent want?"</strong> Before every move, look at what your opponent's last move attacks or threatens.</li>
+      <li><strong>Look for checks, captures and threats.</strong> Before you move, check for these, for both sides. It's how strong players spot tactics.</li>
+      <li><strong>Don't leave pieces unprotected.</strong> Many games are lost by leaving a piece where it can be captured for free. Double-check before letting go!</li>
+      <li><strong>Count before you trade.</strong> Use the piece values: trading your bishop (3) for a rook (5) is good for you; trading your queen (9) for a knight (3) is not.</li>
+      <li><strong>Use your king in the endgame.</strong> When most pieces are gone, the king becomes a strong fighter. Bring it toward the center.</li>
+    </ol>
+    <h3 style="margin-top:28px">Piece values at a glance</h3>
+    <table class="values">
+      <thead><tr><th>Piece</th><th>Value</th></tr></thead>
+      <tbody>
+        <tr><td>Pawn</td><td>1</td></tr>
+        <tr><td>Knight</td><td>3</td></tr>
+        <tr><td>Bishop</td><td>3</td></tr>
+        <tr><td>Rook</td><td>5</td></tr>
+        <tr><td>Queen</td><td>9</td></tr>
+        <tr><td>King</td><td>Can't be traded. Protect it!</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section section-alt" id="practice">
+  <div class="wrap practice">
+    <div>
+      <h2>Try it yourself</h2>
+      <p>Here's a practice board. Tap or drag a piece and the dots show every square it can legally move to. Play both sides to get the hang of it!</p>
+      <p class="puzzle-status" data-practice-status role="status" aria-live="polite">White to move.</p>
+      <button class="button button-ghost" type="button" data-practice-reset>Reset the board</button>
+      <p style="margin-top:20px">Ready for a challenge? Try our <a href="{{ '/puzzle/' | relative_url }}">weekly puzzle</a>.</p>
+    </div>
+    <div class="board-frame"><div class="board" data-practice-board></div></div>
+  </div>
+</section>
+
+<section class="section" id="notation">
+  <div class="wrap narrow">
+    <h2>Reading chess moves</h2>
+    <p>Chess players write moves in a short code called <strong>notation</strong>. It looks tricky, but it's simple:</p>
+    <ul class="rule-list">
+      <li><strong>Squares</strong> are named by column letter (a–h, left to right from White's side) and row number (1–8, from White's side). White's king starts on <strong>e1</strong>.</li>
+      <li><strong>Pieces</strong> use a capital letter: K = king, Q = queen, R = rook, B = bishop, <strong>N = knight</strong> (since K is taken). Pawns have no letter.</li>
+      <li><strong>Nf3</strong> = knight moves to f3. <strong>e4</strong> = pawn moves to e4.</li>
+      <li><strong>x</strong> = captures (Bxc6), <strong>+</strong> = check, <strong>#</strong> = checkmate.</li>
+      <li><strong>O-O</strong> = castling on the king's side, <strong>O-O-O</strong> = castling on the queen's side. <strong>e8=Q</strong> = pawn promotes to a queen.</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section section-alt" id="resources">
+  <div class="wrap">
+    <h2>Free resources</h2>
+    <p class="lead">Want to keep learning between meetings? These are all free.</p>
+    <div class="resources">
+      <a class="resource" href="https://lichess.org/learn" target="_blank" rel="noopener">
+        <strong>Lichess: Learn Chess</strong>
+        <span>Fun, game-like lessons that teach every piece and rule. Great first stop for kids and adults. No account needed.</span>
+      </a>
+      <a class="resource" href="https://lichess.org/practice" target="_blank" rel="noopener">
+        <strong>Lichess: Practice</strong>
+        <span>Hands-on drills for checkmates, tactics and endgames.</span>
+      </a>
+      <a class="resource" href="https://lichess.org/training" target="_blank" rel="noopener">
+        <strong>Lichess: Puzzles</strong>
+        <span>Unlimited free puzzles that adjust to your level.</span>
+      </a>
+      <a class="resource" href="https://www.chess.com/lessons" target="_blank" rel="noopener">
+        <strong>Chess.com Lessons</strong>
+        <span>Video lessons from beginner to advanced (free account; some lessons need a paid plan).</span>
+      </a>
+      <a class="resource" href="https://www.chesskid.com" target="_blank" rel="noopener">
+        <strong>ChessKid</strong>
+        <span>A safe, kid-friendly site with lessons, puzzles and games. Free basic account.</span>
+      </a>
+      <a class="resource" href="https://www.youtube.com/@johnbartholomewchess" target="_blank" rel="noopener">
+        <strong>John Bartholomew on YouTube</strong>
+        <span>His "Chess Fundamentals" video series is a beloved, clear introduction to good habits.</span>
+      </a>
+      <a class="resource" href="https://www.nwchess.com" target="_blank" rel="noopener">
+        <strong>Northwest Chess</strong>
+        <span>Home of the Washington Chess Federation. Find tournaments around the region.</span>
+      </a>
+      <a class="resource" href="https://www.uschess.org" target="_blank" rel="noopener">
+        <strong>US Chess Federation</strong>
+        <span>The official US chess organization: rules, ratings and tournaments nationwide.</span>
+      </a>
+    </div>
+  </div>
+</section>

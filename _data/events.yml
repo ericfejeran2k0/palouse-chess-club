@@ -1,0 +1,43 @@
+# =====================================================================
+#  SPECIAL EVENTS
+#
+#  Regular 1st & 3rd Saturday meetings appear on the calendar
+#  automatically. You don't need to add them here.
+#
+#  Use this file for anything extra: tournaments, workshops, socials,
+#  or to CANCEL a regular meeting (e.g. a library holiday closure).
+#
+#  To add an event, copy one of the examples below, paste it at the
+#  bottom of this file, remove the "#" at the start of each line, and
+#  fill in your details. Rules of thumb:
+#    • Every event starts with "- date:" at the far left.
+#    • The other lines are indented with exactly two spaces.
+#    • Dates are written YEAR-MONTH-DAY, like 2026-11-14.
+#    • Only "date" and "title" are required. Leave out anything else.
+#    • Past events disappear from the website by themselves.
+#
+#  ---- Example: a tournament ----------------------------------------
+#  - date: 2026-11-14
+#    title: "Fall Quick-Play Tournament"
+#    time: "10:00 a.m. – 3:00 p.m."
+#    location: "Neill Public Library, 210 N Grand Ave, Pullman"
+#    description: "Four rounds, 25 minutes per player. Free entry, prizes for every age group."
+#    link: "https://example.com/more-info"
+#
+#  ---- Example: cancel a regular meeting ---------------------------
+#  - date: 2026-12-19
+#    title: "No meeting — library closed for the holidays"
+#    cancel: yes
+#
+#  ---- Example: change the time or room of a regular meeting --------
+#  (Use the same date as the regular meeting. Your details replace
+#   the usual ones for that day only.)
+#  - date: 2027-01-02
+#    title: "Club meeting — in the Community Room this week"
+#    time: "11:00 a.m. – 1:00 p.m."
+#    location: "Neill Public Library, Community Room"
+#
+# =====================================================================
+
+# Add your events below this line.
+

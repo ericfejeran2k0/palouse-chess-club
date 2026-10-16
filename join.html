@@ -1,0 +1,31 @@
+---
+layout: default
+title: Join the Club
+description: Sign up for the Palouse Chess Club mailing list. It's free, and so are our meetings.
+---
+<header class="page-head">
+  <div class="wrap narrow">
+    <p class="eyebrow">Sign up</p>
+    <h1>Join the club</h1>
+    <p class="lead">Membership is free! Fill out the form below so we can keep you posted about meetings, tournaments and special events. Or just show up on a meeting day. You're always welcome.</p>
+  </div>
+</header>
+
+<section class="section" style="padding-top:16px">
+  <div class="wrap narrow">
+    {% if site.signup_form_link and site.signup_form_link != "" %}
+      <div class="form-frame">
+        <iframe class="clickup-embed clickup-dynamic-height" src="{{ site.signup_form_link }}" title="Palouse Chess Club sign-up form" onwheel=""></iframe>
+        <script async src="https://app-cdn.clickup.com/assets/js/forms-embed/v1.js"></script>
+      </div>
+      <p style="margin-top:12px; font-size:.95rem">Trouble seeing the form? <a href="{{ site.signup_form_link }}" target="_blank" rel="noopener">Open it in a new window</a>.</p>
+    {% else %}
+      <div class="empty-state">
+        <div class="big" aria-hidden="true">♘</div>
+        <h2>Sign-up form coming soon</h2>
+        <p>In the meantime, just come to a meeting. We'd love to meet you!</p>
+        <a class="button" href="{{ '/events/' | relative_url }}">See meeting dates</a>
+      </div>
+    {% endif %}
+  </div>
+</section>

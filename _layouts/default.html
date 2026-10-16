@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2E6B4E">
+  {% seo %}
+  <link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ '/assets/img/logo.png' | relative_url }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap">
+  {% if page.chessboard %}
+  <link rel="stylesheet" href="{{ '/assets/vendor/chessground.base.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/vendor/chessground.brown.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/vendor/chessground.cburnett.css' | relative_url }}">
+  {% endif %}
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="{{ '/' | relative_url }}">
+        <img src="{{ '/assets/img/favicon.svg' | relative_url }}" alt="" width="40" height="40">
+        <span>Palouse <em>Chess Club</em></span>
+      </a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="menu-icon" aria-hidden="true"></span>
+        <span class="menu-label">Menu</span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        {% assign nav = "Home|/,Events|/events/,Weekly Puzzle|/puzzle/,Learn|/learn/,Photos|/photos/" | split: "," %}
+        {% for item in nav %}
+          {% assign parts = item | split: "|" %}
+          <a href="{{ parts[1] | relative_url }}"{% if page.url == parts[1] %} aria-current="page"{% endif %}>{{ parts[0] }}</a>
+        {% endfor %}
+        <a class="nav-cta" href="{{ '/join/' | relative_url }}"{% if page.url == '/join/' %} aria-current="page"{% endif %}>Join&nbsp;the&nbsp;Club</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <p class="footer-title">{{ site.title }}</p>
+        <p>{{ site.tagline }}. All ages, all skill levels, always free.</p>
+      </div>
+      <div>
+        <p class="footer-title">When &amp; where</p>
+        <p>1st &amp; 3rd {{ site.meetings.weekday }}s · {{ site.meetings.time_text }}<br>
+          {{ site.location.name }}, {{ site.location.room }}<br>
+          {{ site.location.address }}</p>
+      </div>
+      <div>
+        <p class="footer-title">Stay in touch</p>
+        <p>
+          <a href="{{ '/join/' | relative_url }}">Join the mailing list</a>
+          {% if site.contact_email != "" %}<br><a href="mailto:{{ site.contact_email }}">{{ site.contact_email }}</a>{% endif %}
+          {% if site.facebook_link != "" %}<br><a href="{{ site.facebook_link }}">Find us on Facebook</a>{% endif %}
+        </p>
+      </div>
+    </div>
+    <p class="wrap footer-credits">Chessboard by <a href="https://github.com/lichess-org/chessground">Chessground</a> (from Lichess) · Chess pieces by Colin M.L. Burnett · Rules by <a href="https://github.com/jhlywa/chess.js">chess.js</a></p>
+  </footer>
+
+  <script src="{{ '/assets/js/club-data.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+  <script src="{{ '/assets/js/site.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+  {% if page.chessboard %}
+  <script type="module" src="{{ '/assets/js/boards.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+  {% endif %}
+</body>
+</html>
